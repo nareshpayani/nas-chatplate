@@ -14,21 +14,22 @@ function Chatwindow() {
     const [roomMessages, setRoomMessages] = useState([]);
 
     useEffect(() => {
-        if(roomId) {
-            db.collection('rooms').doc(roomId).onSnapshot((snapshot) => (
-               setRoomDetails(snapshot.data()) 
-            ))
+        if (roomId) {
+            db.collection('rooms')
+                .doc(roomId)
+                .onSnapshot(snapshot => (
+                    setRoomDetails(snapshot.data())
+                ))
         }
 
         db.collection('rooms').doc(roomId)
-        .collection('messages')
-        .orderBy('timestamp', 'asc')
-        .onSnapshot((snapshot) =>
-            setRoomMessages(
-                snapshot.docs.map((doc) => doc.data())
-            )
-        );
-      
+            .collection('messages')
+            .orderBy('timestamp', 'asc')
+            .onSnapshot(snapshot =>
+                setRoomMessages(
+                    snapshot.docs.map(doc => doc.data())
+                )
+        )
     }, [roomId])
     
    
@@ -55,18 +56,18 @@ console.log(roomMessages);
             <div className="chatwindow__messages">
                 {/* message component */}
 
-                {roomMessages.map(({message, user, userImage, timestamp}) => 
-                
-                <Message 
-                message = {message}
-                user={user}
-                userImage={userImage}
-                timestamp={timestamp}
-                />
-                )}
+                {roomMessages.map(({message, timestamp, userImage, user}) => (
+                    <Message
+                        message={message}
+                        timestamp={timestamp}
+                        userImage={userImage}
+                        user={user}
+                    />
+                ))}
                 
             </div>
-             <ChatInput channelName= {roomDetails?.name} channelId  />
+            {roomDetails ? console.log(roomDetails) : null}
+             <ChatInput channelName= {roomDetails?.name} channelId={roomId}  />
         </div>
     )
 }

@@ -9,21 +9,21 @@ import { actionTypes } from './reducer'
 function Login() {
 //Google Authentication function
 
-const [dispatch] = useStateValue();
+const [state, dispatch] = useStateValue()
 
-    const signIn = () => {
+    const signIn = (e) => {
         auth
         .signInWithPopup(provider)
-        .then((result) => {
-            console.log(result);
+        .then(result => {
+            console.log(result)
             dispatch({
-                type:actionTypes.SET_USER,
+                type: actionTypes.SET_USER,
                 user: result.user
             })
         })
-        .catch((error) => {
+        .catch(error => {
             alert(error.message)
-        });
+        }) 
     }
 
     return (

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './App.css';
 import Header from './Components/Header';
 import Sidebar from './Components/Sidebar';
@@ -8,41 +8,31 @@ import Login from './Components/Login';
 import { useStateValue } from './Components/StateProvider';
 
 function App() {
-
- 
-  const [{user}] = useStateValue();
+  const [{ user }, dispatch] = useStateValue();
 
   return (
     <div className="app">
       <Router>
-
-      {!user ? (
-        <Login />
-      ) : (
-        <>
-        {/* Header */}
-        <Header/>
-        <div className="app__body">
-          {/* SideBar */}
-          <Sidebar />
-
-            <Switch>
-              <Route path="/room/:roomId">
+        {!user ? (
+          <Login/>
+          )
+            : (
+          <>
+          <Header/>
+            <div className="app__body">
+              <Sidebar/>
+              <Switch>
+                <Route path="/room/:roomId">
                   <Chatwindow/>
-              </Route>
-              <Route path="/">
-                  <h1>nthplace</h1>
-              </Route>
-            </Switch>
-          {/* Chat Screen */}
-        </div>
-        </>
-
-      )}
-
-      
+                </Route>
+                <Route path="/">
+                  <h1>HELLO!</h1>
+                </Route>
+              </Switch>
+            </div>
+          </>)
+        }
       </Router>
-      
     </div>
   );
 }
