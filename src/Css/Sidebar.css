@@ -1,0 +1,50 @@
+.sidebar{
+    background-color: var(--chatplate-color);
+    border-top: 1px solid white;
+    max-width: 260px;
+    color: white;
+    flex: 0.3;
+}
+
+.sidebar__header{
+    display: flex;
+    border-bottom: 1px solid white;
+    padding-bottom:10px ;
+    padding: 13px;
+}
+
+.sidebar__header > .MuiSvgIcon-root{
+    padding: 8px;
+    color: #1776D1;
+    font-size: 18px;
+    background-color: white;
+    border-radius: 999px;
+}
+.sidebar__info{
+    flex: 1;
+}
+
+.sidebar__info > h2 {
+    font-size: 15px;
+    font-weight: 900;
+    margin-bottom: 5px;
+}
+
+.sidebar__info > h3{
+    display: flex;
+    align-items: center;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.sidebar__info > h3 > .MuiSvgIcon-root{
+    font-size: 14px;
+    margin-top: 1px;
+    margin-right: 2px;
+    color:maroon;
+}
+.sidebar > hr{
+    margin-bottom: 10px;
+    margin-top: 10px;
+    border: 1px solid white;
+}

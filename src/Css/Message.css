@@ -1,0 +1,24 @@
+.message{
+    display: flex;
+    align-items: center;
+    padding: 20px;
+}
+.message >img {
+    height: 50px;
+    width: 50px;
+    object-fit: contain;
+}
+.message__timestamp{
+    color: gray;
+    font-weight: 300;
+    font-size: 13px;
+}
+.message__info{
+    padding-left: 20px;
+}
+.message__info > h4{
+    margin: 0;
+}
+.message__info > p{
+    margin: 0;
+}
